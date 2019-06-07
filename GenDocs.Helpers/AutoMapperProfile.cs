@@ -14,6 +14,12 @@ namespace GenDocs.Helpers
         {
             CreateMap<User, UserDto>();
             CreateMap<UserDto, User>();
+
+            CreateMap<DocumentCreateDto, Document>();
+            CreateMap<Document, DocumentResponseDto>();
+
+            CreateMap<Document, DocumentListItemDto>();
+            CreateMap<DocumentListItemDto, Document>();
         }
     }
 }

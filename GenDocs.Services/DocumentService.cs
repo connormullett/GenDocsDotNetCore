@@ -1,5 +1,7 @@
 ﻿using GenDocs.Contracts;
 using GenDocs.Dtos.DocumentDtos;
+using GenDocs.Entities;
+using GenDocs.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,9 +10,17 @@ namespace GenDocs.Services
 {
     public class DocumentService : IDocumentService
     {
-        public bool Create(DocumentCreateDto document)
+        private DataContext _context;
+
+        public DocumentService(DataContext context)
         {
-            throw new NotImplementedException();
+            _context = context;
+        }
+
+        public bool Create(Document document)
+        {
+            _context.Documents.Add(document);
+            return _context.SaveChanges() == 1;
         }
 
         public bool DeleteDocumentById(int id)
@@ -18,14 +28,14 @@ namespace GenDocs.Services
             throw new NotImplementedException();
         }
 
-        public IEnumerable<DocumentListItemDto> GetAllDocuments()
+        public IEnumerable<Document> GetAllDocuments()
         {
-            throw new NotImplementedException();
+            return _context.Documents;
         }
 
-        public DocumentResponseDto GetDocumentById(int id)
+        public Document GetDocumentById(int id)
         {
-            throw new NotImplementedException();
+            return _context.Documents.Find(id);
         }
 
         public IEnumerable<DocumentListItemDto> GetDocumentsByLanguage(string language)
