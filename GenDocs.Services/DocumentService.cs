@@ -71,12 +71,12 @@ namespace GenDocs.Services
 
         public IEnumerable<DocumentListItemDto> GetDocumentsByLanguage(string language)
         {
-            return _context.Documents.Where(x => x.Language == language).Select(
+            return _context.Documents.Where(x => x.Language.ToLower() == language.ToLower()).Select(
                     x => new DocumentListItemDto()
                     {
                         Id = x.Id,
                         Title = x.Title,
-                        Content = x.Content.Substring(0, 20),
+                        Content = x.Content,
                         Language = x.Language,
                         OwnerId = x.OwnerId
                     }

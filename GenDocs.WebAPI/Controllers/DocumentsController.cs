@@ -73,9 +73,19 @@ namespace GenDocs.WebAPI.Controllers
             return Ok(documentDto);
         }
 
+        [AllowAnonymous]
+        [HttpGet("bylanguage/{language}")]
+        public IActionResult GetDocumentsByLanguage(string language)
+        {
+            var documents = _documentService.GetDocumentsByLanguage(language);
+            return Ok(documents);
+        }
+
         [HttpPut("{id}")]
         public IActionResult Update(int id, [FromBody]DocumentUpdateDto document)
         {
+            // DocumentService.Update() NEEDS the former values and is 
+            // on the client to provide the old values and new ones
             var queriedDocument = _documentService.GetDocumentById(id);
             if(queriedDocument.OwnerId != int.Parse(User.Identity.Name))
             {
