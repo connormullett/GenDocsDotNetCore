@@ -10,12 +10,14 @@ namespace GenDocs.Contracts
     {
         bool Create(Document document);
 
-        IEnumerable<Document> GetAllDocuments();
+        IEnumerable<DocumentListItemDto> GetAllDocuments();
 
         IEnumerable<DocumentListItemDto> GetDocumentsByLanguage(string language);
 
-        Document GetDocumentById(int id);
+        DocumentResponseDto GetDocumentById(int id);
 
         bool DeleteDocumentById(int id);
+
+        bool UpdateDocument(int id, DocumentUpdateDto model);
     }
 }

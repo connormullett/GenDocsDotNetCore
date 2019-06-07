@@ -21,7 +21,6 @@ namespace GenDocs.WebAPI.Controllers
     {
         private readonly IDocumentService _documentService;
         private readonly IMapper _mapper;
-        private readonly AppSettings _appSettings;
 
         public DocumentsController(
             IDocumentService service,
@@ -30,7 +29,6 @@ namespace GenDocs.WebAPI.Controllers
         {
             _documentService = service;
             _mapper = mapper;
-            _appSettings = appSettings.Value;
         }
 
         [HttpPost("create")]
@@ -73,6 +71,33 @@ namespace GenDocs.WebAPI.Controllers
             var document = _documentService.GetDocumentById(id);
             var documentDto = _mapper.Map<DocumentResponseDto>(document);
             return Ok(documentDto);
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult Update(int id, [FromBody]DocumentUpdateDto document)
+        {
+            var queriedDocument = _documentService.GetDocumentById(id);
+            if(queriedDocument.OwnerId != int.Parse(User.Identity.Name))
+            {
+                return StatusCode(401);
+            }
+
+            var response = _documentService.UpdateDocument(id, document);
+            if (response)
+            {
+                return Ok();
+            }
+            return StatusCode(404);
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            if(_documentService.DeleteDocumentById(id))
+            {
+                return StatusCode(204);
+            }
+            return StatusCode(404);
         }
     }
 }
