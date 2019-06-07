@@ -32,7 +32,7 @@ namespace GenDocs.WebAPI.Controllers
         }
 
         [HttpPost("create")]
-        public IActionResult Post([FromBody]DocumentCreateDto documentDto)
+        public ActionResult Post([FromBody]DocumentCreateDto documentDto)
         {
             Document document = _mapper.Map<Document>(documentDto);
 
@@ -57,7 +57,7 @@ namespace GenDocs.WebAPI.Controllers
 
         [AllowAnonymous]
         [HttpGet]
-        public IActionResult GetAllDocuments()
+        public ActionResult<IEnumerable<DocumentListItemDto>> GetAllDocuments()
         {
             var documents = _documentService.GetAllDocuments();
             var documentListItems = _mapper.Map<IList<DocumentListItemDto>>(documents);
@@ -66,7 +66,7 @@ namespace GenDocs.WebAPI.Controllers
 
         [AllowAnonymous]
         [HttpGet("{id}")]
-        public IActionResult GetById(int id)
+        public ActionResult<DocumentResponseDto> GetById(int id)
         {
             var document = _documentService.GetDocumentById(id);
             var documentDto = _mapper.Map<DocumentResponseDto>(document);
@@ -75,21 +75,21 @@ namespace GenDocs.WebAPI.Controllers
 
         [AllowAnonymous]
         [HttpGet("bylanguage/{language}")]
-        public IActionResult GetDocumentsByLanguage(string language)
+        public ActionResult<IEnumerable<DocumentListItemDto>> GetDocumentsByLanguage(string language)
         {
             var documents = _documentService.GetDocumentsByLanguage(language);
             return Ok(documents);
         }
 
         [HttpPut("{id}")]
-        public IActionResult Update(int id, [FromBody]DocumentUpdateDto document)
+        public ActionResult Update(int id, [FromBody]DocumentUpdateDto document)
         {
             // DocumentService.Update() NEEDS the former values and is 
             // on the client to provide the old values and new ones
             var queriedDocument = _documentService.GetDocumentById(id);
             if(queriedDocument.OwnerId != int.Parse(User.Identity.Name))
             {
-                return StatusCode(401);
+                return Unauthorized();
             }
 
             var response = _documentService.UpdateDocument(id, document);
@@ -97,17 +97,17 @@ namespace GenDocs.WebAPI.Controllers
             {
                 return Ok();
             }
-            return StatusCode(404);
+            return NotFound();
         }
 
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        public ActionResult Delete(int id)
         {
             if(_documentService.DeleteDocumentById(id))
             {
-                return StatusCode(204);
+                return NoContent();
             }
-            return StatusCode(404);
+            return NotFound();
         }
     }
 }
