@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29001.49
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GenDocs.WebAPI", "GenDocs.WebAPI\GenDocs.WebAPI.csproj", "{8843E395-79E9-489C-B721-9B91EA96152D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GenDocs.Dtos", "GenDocs.Dtos\GenDocs.Dtos.csproj", "{5C2C5356-047C-4A08-8FC1-938F8DA69952}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GenDocs.Entities", "GenDocs.Entities\GenDocs.Entities.csproj", "{A57CFBAB-056B-4698-8488-A55D3CA03958}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GenDocs.Helpers", "GenDocs.Helpers\GenDocs.Helpers.csproj", "{DF92F68A-42B1-4B9B-B7AF-28DBA4816589}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GenDocs.Services", "GenDocs.Services\GenDocs.Services.csproj", "{73457DD1-D189-4F27-BCCB-721D5133906D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GenDocs.Contracts", "GenDocs.Contracts\GenDocs.Contracts.csproj", "{35D11E24-3BED-4E6E-9FC0-16C4858DC316}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenDocs.Tests", "GenDocs.Tests\GenDocs.Tests.csproj", "{222CC74E-6B57-4AA9-B2DB-0C859CBFBC6F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8843E395-79E9-489C-B721-9B91EA96152D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8843E395-79E9-489C-B721-9B91EA96152D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8843E395-79E9-489C-B721-9B91EA96152D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8843E395-79E9-489C-B721-9B91EA96152D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C2C5356-047C-4A08-8FC1-938F8DA69952}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C2C5356-047C-4A08-8FC1-938F8DA69952}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C2C5356-047C-4A08-8FC1-938F8DA69952}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C2C5356-047C-4A08-8FC1-938F8DA69952}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A57CFBAB-056B-4698-8488-A55D3CA03958}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A57CFBAB-056B-4698-8488-A55D3CA03958}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A57CFBAB-056B-4698-8488-A55D3CA03958}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A57CFBAB-056B-4698-8488-A55D3CA03958}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF92F68A-42B1-4B9B-B7AF-28DBA4816589}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF92F68A-42B1-4B9B-B7AF-28DBA4816589}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF92F68A-42B1-4B9B-B7AF-28DBA4816589}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF92F68A-42B1-4B9B-B7AF-28DBA4816589}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73457DD1-D189-4F27-BCCB-721D5133906D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73457DD1-D189-4F27-BCCB-721D5133906D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73457DD1-D189-4F27-BCCB-721D5133906D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73457DD1-D189-4F27-BCCB-721D5133906D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35D11E24-3BED-4E6E-9FC0-16C4858DC316}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35D11E24-3BED-4E6E-9FC0-16C4858DC316}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35D11E24-3BED-4E6E-9FC0-16C4858DC316}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35D11E24-3BED-4E6E-9FC0-16C4858DC316}.Release|Any CPU.Build.0 = Release|Any CPU
+		{222CC74E-6B57-4AA9-B2DB-0C859CBFBC6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{222CC74E-6B57-4AA9-B2DB-0C859CBFBC6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{222CC74E-6B57-4AA9-B2DB-0C859CBFBC6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{222CC74E-6B57-4AA9-B2DB-0C859CBFBC6F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {796BB4B2-E2CD-4513-ADE2-EEC5C7ADB309}
+	EndGlobalSection
+EndGlobal

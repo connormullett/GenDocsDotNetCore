@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GenDocs.Dtos\GenDocs.Dtos.csproj" />
+    <ProjectReference Include="..\GenDocs.Entities\GenDocs.Entities.csproj" />
+  </ItemGroup>
+
+</Project>
