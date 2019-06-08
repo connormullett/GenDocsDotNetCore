@@ -7,6 +7,7 @@ namespace GenDocs.Dtos.CommentDtos
     public class CommentUpdateDto
     {
         public int Id { get; set; }
+        public int OwnerId { get; set; }
         public string Content { get; set; }
     }
 }

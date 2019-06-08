@@ -29,12 +29,22 @@ namespace GenDocs.Services
             throw new NotImplementedException();
         }
 
-        public IEnumerable<CommentListItemDto> GetCommentsByDocumentId(int documentId)
+        public IEnumerable<CommentListItemDto> GetCommentsAsListItemsByDocument(int documentId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<CommentResponseDto> GetCommentsByDocumentId(int documentId)
         {
             throw new NotImplementedException();
         }
 
         public IEnumerable<CommentListItemDto> GetCommentsByOwnerId(int ownerId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public CommentResponseDto GetParentCommentById(int commentId)
         {
             throw new NotImplementedException();
         }

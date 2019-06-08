@@ -12,11 +12,15 @@ namespace GenDocs.Contracts
 
         IEnumerable<CommentListItemDto> GetAllComments();
 
-        IEnumerable<CommentListItemDto> GetCommentsByDocumentId(int documentId);
+        IEnumerable<CommentResponseDto> GetCommentsByDocumentId(int documentId);
+
+        IEnumerable<CommentListItemDto> GetCommentsAsListItemsByDocument(int documentId);
 
         IEnumerable<CommentListItemDto> GetCommentsByOwnerId(int ownerId);
 
         CommentResponseDto GetCommentById(int commentId);
+
+        CommentResponseDto GetParentCommentById(int commentId);
 
         bool DeleteCommentById(int commentId);
 
