@@ -22,6 +22,11 @@ namespace GenDocs.WebAPI.Controllers
         private readonly IDocumentService _documentService;
         private readonly IMapper _mapper;
 
+        public DocumentsController(IDocumentService service)
+        {
+            _documentService = service;
+        }
+
         public DocumentsController(
             IDocumentService service,
             IMapper mapper,
