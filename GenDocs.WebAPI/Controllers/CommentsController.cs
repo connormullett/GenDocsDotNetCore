@@ -127,7 +127,7 @@ namespace GenDocs.WebAPI.Controllers
             return NotFound();
         }
 
-        [HttpDelete("{id")]
+        [HttpDelete("{id}")]
         public ActionResult Delete(int id)
         {
             var comment = _service.GetCommentById(id);

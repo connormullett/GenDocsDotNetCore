@@ -39,6 +39,8 @@ namespace GenDocs.Helpers.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("DocumentId");
+
                     b.ToTable("Comments");
                 });
 
@@ -47,8 +49,6 @@ namespace GenDocs.Helpers.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("CommentId");
 
                     b.Property<string>("Content");
 
@@ -63,8 +63,6 @@ namespace GenDocs.Helpers.Migrations
                     b.Property<string>("Title");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CommentId");
 
                     b.ToTable("Documents");
                 });
@@ -94,11 +92,12 @@ namespace GenDocs.Helpers.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("GenDocs.Entities.Document", b =>
+            modelBuilder.Entity("GenDocs.Entities.Comment", b =>
                 {
-                    b.HasOne("GenDocs.Entities.Comment")
-                        .WithMany("Documents")
-                        .HasForeignKey("CommentId");
+                    b.HasOne("GenDocs.Entities.Document", "Document")
+                        .WithMany("Comments")
+                        .HasForeignKey("DocumentId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

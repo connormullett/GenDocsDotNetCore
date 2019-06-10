@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace GenDocs.Entities
@@ -15,6 +16,7 @@ namespace GenDocs.Entities
         public string Content { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime? ModifiedAt { get; set; }
-        public ICollection<Document> Documents { get; set; }
+        // foreign key
+        public Document Document { get; set; }
     }
 }

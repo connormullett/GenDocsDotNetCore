@@ -21,11 +21,7 @@ namespace GenDocs.WebAPI.Controllers
     {
         private readonly IDocumentService _documentService;
         private readonly IMapper _mapper;
-
-        public DocumentsController(IDocumentService service)
-        {
-            _documentService = service;
-        }
+        private readonly AppSettings _appSettings;
 
         public DocumentsController(
             IDocumentService service,
@@ -34,6 +30,7 @@ namespace GenDocs.WebAPI.Controllers
         {
             _documentService = service;
             _mapper = mapper;
+            _appSettings = appSettings.Value;
         }
 
         [HttpPost("create")]
@@ -43,6 +40,7 @@ namespace GenDocs.WebAPI.Controllers
 
             document.OwnerId = int.Parse(User.Identity.Name);
             document.CreatedAt = DateTime.Now;
+            Console.WriteLine(document);
 
             try
             {
