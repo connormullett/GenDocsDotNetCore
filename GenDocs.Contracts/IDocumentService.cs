@@ -19,5 +19,7 @@ namespace GenDocs.Contracts
         bool DeleteDocumentById(int id);
 
         bool UpdateDocument(int id, DocumentUpdateDto model);
+
+        IEnumerable<DocumentListItemDto> GetdocumentsByOwnerId(int id);
     }
 }

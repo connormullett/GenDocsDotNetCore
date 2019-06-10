@@ -84,6 +84,14 @@ namespace GenDocs.WebAPI.Controllers
             return Ok(documents);
         }
 
+        [AllowAnonymous]
+        [HttpGet("byowner/{id}")]
+        public ActionResult<IEnumerable<DocumentListItemDto>> GetDocumentsByOwnerId(int id)
+        {
+            var documents = _documentService.GetdocumentsByOwnerId(id);
+            return Ok(documents);
+        }
+
         [HttpPut("{id}")]
         public ActionResult Update(int id, [FromBody]DocumentUpdateDto document)
         {

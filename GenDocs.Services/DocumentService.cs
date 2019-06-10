@@ -83,6 +83,20 @@ namespace GenDocs.Services
                 ).ToArray();
         }
 
+        public IEnumerable<DocumentListItemDto> GetdocumentsByOwnerId(int id)
+        {
+            return _context.Documents.Where(x => x.OwnerId == id).Select(
+                x =>  new DocumentListItemDto()
+                {
+                    Id = x.Id,
+                    OwnerId = x.OwnerId,
+                    Title = x.Title,
+                    Content = x.Content,
+                    Language = x.Language
+                }
+            );
+        }
+
         public bool UpdateDocument(int id, DocumentUpdateDto model)
         {
             var documentToUpdate = _context.Documents.Find(id);

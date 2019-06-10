@@ -65,7 +65,7 @@ namespace GenDocs.Services
                     CreatedAt = comment.CreatedAt,
                     DocumentId = comment.DocumentId,
                     ModifiedAt = comment.ModifiedAt,
-                    ReplyId = comment.ReplyId
+                    ReplyId = comment.ReplyId,
                 };
             }
             return null;
