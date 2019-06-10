@@ -16,7 +16,7 @@ namespace GenDocs.Contracts
 
         IEnumerable<CommentListItemDto> GetCommentsAsListItemsByDocument(int documentId);
 
-        IEnumerable<CommentListItemDto> GetCommentsByOwnerId(int ownerId);
+        IEnumerable<CommentResponseDto> GetCommentsByOwnerId(int ownerId);
 
         CommentResponseDto GetCommentById(int commentId);
 
