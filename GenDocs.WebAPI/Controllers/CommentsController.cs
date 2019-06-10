@@ -55,7 +55,7 @@ namespace GenDocs.WebAPI.Controllers
         /// <param name="documentId"></param>
         /// <returns></returns>
         [AllowAnonymous]
-        [HttpGet("bydocument/{id}")]
+        [HttpGet("bydocument/{documentId}")]
         public ActionResult<IEnumerable<CommentResponseDto>> GetCommentsByDocumentId(int documentId)
         {
             var comments = _service.GetCommentsByDocumentId(documentId);
@@ -69,10 +69,24 @@ namespace GenDocs.WebAPI.Controllers
         }
 
         [AllowAnonymous]
-        [HttpGet("{id}")]
-        public ActionResult<CommentResponseDto> GetCommentByCommentId(int commentId)
+        [HttpGet]
+        public ActionResult<IEnumerable<CommentResponseDto>> GetAllComments()
         {
-            CommentResponseDto comment = _service.GetCommentById(commentId);
+            var comments = _service.GetAllComments();
+
+            if(comments != null)
+            {
+                return Ok(comments);
+            }
+
+            return NotFound();
+        }
+
+        [AllowAnonymous]
+        [HttpGet("{id}")]
+        public ActionResult<CommentResponseDto> GetCommentByCommentId(int id)
+        {
+            CommentResponseDto comment = _service.GetCommentById(id);
 
             if(comment != null)
             {
@@ -83,7 +97,7 @@ namespace GenDocs.WebAPI.Controllers
         }
 
         [AllowAnonymous]
-        [HttpGet("getparent/{id}")]
+        [HttpGet("getparent/{commentId}")]
         public ActionResult<CommentResponseDto> GetParentCommentByReplyId(int commentId)
         {
             var comment = _service.GetParentCommentById(commentId);
@@ -96,7 +110,7 @@ namespace GenDocs.WebAPI.Controllers
             return NotFound();
         }
 
-        [HttpGet("byowner/{id}")]
+        [HttpGet("byowner/{ownerId}")]
         public ActionResult<IEnumerable<CommentResponseDto>> GetCommentsByOwnerId(int ownerId)
         {
             var comments = _service.GetCommentsByOwnerId(ownerId);
@@ -109,7 +123,7 @@ namespace GenDocs.WebAPI.Controllers
             return NotFound();
         }
 
-        [HttpPut("update/{id}")]
+        [HttpPut("update/{commentId}")]
         public ActionResult Update(int commentId, CommentUpdateDto commentDto)
         {
             var comment = _service.GetCommentById(commentId);

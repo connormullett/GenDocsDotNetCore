@@ -38,16 +38,17 @@ namespace GenDocs.Services
 
         public IEnumerable<CommentListItemDto> GetAllComments()
         {
-            return _context.Comments.Select(
+            var list = _context.Comments.Select(
                 x => new CommentListItemDto()
                 {
                     Id = x.Id,
-                    Content = x.Content,
-                    DocumentId = x.DocumentId,
                     OwnerId = x.OwnerId,
                     ReplyId = x.ReplyId,
-                }
-            );
+                    Content = x.Content,
+                    DocumentId = x.DocumentId,
+                }    
+            ).ToArray();
+            return list;
         }
 
         public CommentResponseDto GetCommentById(int commentId)
@@ -95,7 +96,7 @@ namespace GenDocs.Services
                     OwnerId = x.OwnerId,
                     ModifiedAt = x.ModifiedAt,
                     CreatedAt = x.CreatedAt,
-                });
+                }).ToArray();
         }
 
         public IEnumerable<CommentResponseDto> GetCommentsByOwnerId(int ownerId)

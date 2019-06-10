@@ -11,7 +11,7 @@ namespace GenDocs.Services
 {
     public class DocumentService : IDocumentService
     {
-        private DataContext _context;
+        private readonly DataContext _context;
 
         public DocumentService(DataContext context)
         {

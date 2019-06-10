@@ -8,7 +8,9 @@ namespace GenDocs.Tests.DocumentTests
         [TestMethod]
         public void TestDocumentCreate()
         {
-            //var controller = DocumentsController();
+            //var controller = DocumentsController(new MockDocumentService());
+
+
         }
     }
 }

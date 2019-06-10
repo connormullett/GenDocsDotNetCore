@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace GenDocs.Entities
@@ -14,5 +15,6 @@ namespace GenDocs.Entities
         public DateTime? ModifiedAt { get; set; }
         public byte[] PasswordHash { get; set; }
         public byte[] PasswordSalt { get; set; }
+        public ICollection<Document> Documents { get; set; }
     }
 }
